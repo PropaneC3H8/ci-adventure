@@ -22,11 +22,15 @@ jobs:
     docker:
       - image: cimg/node:15.0.1
     steps:
-      - run: echo "hello"
+      - run:
+          name: "Say Hello"
+          command: "echo Hello"
   print_world:
     - image: cimg/node:15.0.1
     steps:
-      - run: echo "world"
+      - run:
+          name: "Say World"
+          command: "echo World"
     requires:
       - print_hello
 
