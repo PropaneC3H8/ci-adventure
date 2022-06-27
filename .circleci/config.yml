@@ -20,13 +20,13 @@ jobs:
 
   print_hello:
     docker:
-      - image: cimg/node:15.0.1
+      - image: cimg/base:stable
     steps:
       - run:
           name: "Say Hello"
           command: "echo Hello"
   print_world:
-    - image: cimg/node:15.0.1
+    - image: cimg/base:stable
     steps:
       - run:
           name: "Say World"
