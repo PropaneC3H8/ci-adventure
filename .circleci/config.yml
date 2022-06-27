@@ -20,11 +20,11 @@ jobs:
 
   print_hello:
     docker:
-      - image: circleci/node:13.8.0
+      - image: cimg/node:15.0.1
     steps:
       - run: echo "hello"
   print_world:
-    - image: circleci/node:13.8.0
+    - image: cimg/node:15.0.1
     steps:
       - run: echo "world"
     requires:
