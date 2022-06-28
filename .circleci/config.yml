@@ -15,43 +15,15 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "Say hello"
-          command: "echo Hello, World!"
-
-  print_hello:
-    docker:
-      - image: cimg/base:stable
-    steps:
+          name: "Erraneous command"
+          command: "return 1"
       - run:
-          name: "Say Hello"
-          command: "echo Hello"
-  print_world:
-    docker:
-      - image: cimg/base:stable
-    steps:
-      - run:
-          name: "Say World"
-          command: "echo World"
-
-  env-vars:
-    docker:
-      - image: cimg/base:stable
-    steps:
-      - checkout
-      - run:
-          name: "echo out my name"
-          command: |
-            echo $NAME
-
-
+          name: "Print error message"
+          command: "echo Hello Error!"
+          when: on_fail
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
   say-hello-workflow:
     jobs:
       - say-hello
-      - print_hello
-      - print_world:
-          requires:
-            - print_hello
-      - env-vars
